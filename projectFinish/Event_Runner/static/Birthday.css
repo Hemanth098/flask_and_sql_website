@@ -1,0 +1,10 @@
+body {
+  background: #fafafa;
+  color: white;
+  margin-top: 5rem;
+  background-image: url('res/birthday.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-opacity:0.5;
+}

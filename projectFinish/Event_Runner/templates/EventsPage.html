@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='background.css') }}">
+    {% if title %}
+        <title>HVN Event - {{ title }}</title>
+        <link rel="icon" href="{{ url_for('static', filename='Logo.jpg') }}">
+    {% else %}
+        <title>HVN Events....</title>
+        <link rel="icon" href="{{ url_for('static', filename='Logo.jpg') }}">
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+                <div class="header">
+                        <div class="logo">
+                            <a class="header-logo" href="{{ url_for('home') }}"></a>
+                        </div>
+                </div>
+
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                 <a class="nav-item nav-link" href="{{ url_for('EventsPage') }}">Events</a>
+              <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <h1 style="text-align:center;"> Events Page</h1>
+    <style>
+     .card{
+        width:70%;
+        height:70%;
+        background:transparent;
+        margin-bottom:70px;
+     }
+     .left img{
+        width:70%;
+        heigth:70%;
+     }
+
+     .right,.right h3{
+         padding:10px;
+     }
+    .left {
+        width:60%;
+        height:60%;
+}
+     .right button{
+         display:block;
+         background:black;
+         color:white;
+         padding:10px;
+         width:100%;
+         margin:10px;
+     }
+ </style>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8" style="padding:0% 0% 0%;">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </main>
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">BOOK A WEDDING EVENT </h2>
+          <p class="leading-relaxed"></p>
+            <a class="text-indigo-500 inline-flex items-center mt-4">
+              <a class="card" href="{{ url_for('marriage') }}">
+                <div class="left">
+                 <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGluZGlhbiUyMHdlZGRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt="clickable image">
+                </div>
+              </a>
+            </a>
+        </div>
+        </div>
+        <div class="py-8 flex flex-wrap md:flex-nowrap">
+          <div class="md:flex-grow">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">BOOK A BIRTHDAY EVENT BY CLICK</h2>
+            <p class="leading-relaxed" style="color:white;"></p>
+            <a class="text-indigo-500 inline-flex mt-4">
+              <a class="card" href="{{ url_for('Birthday') }}">
+                <div class="left">
+                  <img src="https://media.istockphoto.com/id/1321505876/photo/birthday-cupcake-with-pastel-colored-sprinkles-and-a-candle.jpg?b=1&s=170667a&w=0&k=20&c=YmCVoPxJj9JZK21AU0HtoXMnzuNwNRHS_izm48u8WkA=" alt="clickable image">
+                    <h3 class="right">For Birthday Parties Please click here</h3>
+                </div>
+              </a>
+            </a>
+        </div>
+      </div>
+       <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">BOOK PARTY </h2>
+          <p class="leading-relaxed"></p>
+            <a class="text-indigo-500 inline-flex items-center mt-4">
+              <a class="card" href="{{ url_for('celebrations') }}">
+                <div class="left">
+                 <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="clickable image">
+                </div>
+              </a>
+            </a>
+        </div>
+         <div class="py-8 flex flex-wrap md:flex-nowrap">
+          <div class="md:flex-grow">
+            <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">BOOK A PLACE FOR MEETING</h2>
+            <p class="leading-relaxed" style="color:white;"></p>
+            <a class="text-indigo-500 inline-flex mt-4">
+              <a class="card" href="{{ url_for('Meeting') }}">
+                <div class="left">
+                  <img src="https://images.unsplash.com/photo-1568992688065-536aad8a12f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWVldGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60" alt="clickable image">
+                </div>
+              </a>
+            </a>
+        </div>
+           </div>
+  </div>
+  </div>
+</section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

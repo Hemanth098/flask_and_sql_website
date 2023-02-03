@@ -1,0 +1,30 @@
+body {
+  background: #fafafa;
+  color: white;
+  margin-top: 5rem;
+  background-image: url('res/celebration.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-opacity:0.5;
+}
+.contentsection {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background: rgba(255, 122, 89, 0.1);
+}
+.textfield {
+  padding: 0 15;
+    display: block;
+}
+.responsive-box {
+  width: 80%;
+  height: 90%;
+  padding: 150px 200px;
+  background-color: white;
+  color:black;
+  margin-bottom: 20px;
+}
