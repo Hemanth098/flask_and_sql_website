@@ -10,3 +10,4 @@ The required Pip installs are :
   . email_validator
   . wtforms
   . flask_wtf
+  
